@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.dao.KanbanxinxiDao">
+
+	<!-- 可根据自己的需求，是否要使用 -->
+    <resultMap type="com.entity.KanbanxinxiEntity" id="kanbanxinxiMap">
+        <result property="kanbanmingcheng" column="kanbanmingcheng"/>
+        <result property="yulantu" column="yulantu"/>
+        <result property="wangyelianjie" column="wangyelianjie"/>
+        <result property="neirongshuoming" column="neirongshuoming"/>
+    </resultMap>
+
+	<select id="selectListVO"
+		resultType="com.entity.vo.KanbanxinxiVO" >
+		SELECT * FROM kanbanxinxi  kanbanxinxi         
+        <where> 1=1 ${ew.sqlSegment}</where>
+	</select>
+	
+	<select id="selectVO"
+		resultType="com.entity.vo.KanbanxinxiVO" >
+		SELECT  kanbanxinxi.* FROM kanbanxinxi  kanbanxinxi 	
+ 		<where> 1=1 ${ew.sqlSegment}</where>
+	</select>
+
+    <select id="selectListView"
+		resultType="com.entity.view.KanbanxinxiView" >
+
+		SELECT  kanbanxinxi.* FROM kanbanxinxi  kanbanxinxi 	        
+        <where> 1=1 ${ew.sqlSegment}</where>
+	</select>
+	
+	<select id="selectView"
+		resultType="com.entity.view.KanbanxinxiView" >
+		SELECT * FROM kanbanxinxi  kanbanxinxi <where> 1=1 ${ew.sqlSegment}</where>
+	</select>
+	
+
+</mapper>
